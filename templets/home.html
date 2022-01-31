@@ -1,0 +1,71 @@
+{% extends 'includes/main.html' %}
+{% load static %}
+ {% block content %}
+<div class="card direct-chat direct-chat-warning">
+  <div class="card-header">
+    <h3 class="card-title">Start chatting</h3>
+
+    <div class="card-tools">
+      <button type="button" class="btn btn-tool" data-card-widget="collapse">
+        <i class="fas fa-minus"></i>
+      </button>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="direct-chat-messages">
+      
+      {% if messages %}
+        {% for massage in messages %}
+          <!-- Message to the right -->
+          <div class="direct-chat-msg right">
+            <div class="direct-chat-infos clearfix">
+              <span class="direct-chat-name float-right">You</span>
+            </div>
+            <img
+              class="direct-chat-img"
+              src="{% static "dist/img/user3-128x128.jpg" %}"
+            />
+            <div class="direct-chat-text">
+              {{massage.0}}
+            </div>
+          </div>
+          
+          <!-- Message to the left -->
+          <div class="direct-chat-msg">
+            <div class="direct-chat-infos clearfix">
+              <span class="direct-chat-name float-left">Linose <em>Bot</em></span>
+            </div>
+            <img
+              class="direct-chat-img"
+              src="{% static "dist/img/user1-128x128.jpg" %}"
+            />
+            <div class="direct-chat-text">
+              {{massage.1}}
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}  
+        <p class="text-center">Start chatting...</p>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="card-footer">
+    <form action="#" method="post">
+      {% csrf_token %}
+      <div class="input-group">
+        <input
+          type="text"
+          name="message"
+          placeholder="Type Message ..."
+          class="form-control"
+          autofocus
+        />
+        <span class="input-group-append">
+          <button type="submit" class="btn btn-warning">Send</button>
+        </span>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock content %}

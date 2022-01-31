@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Linose Studio | Chatter bot</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="{% static "fontawesome-free/css/all.min.css" %}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{% static "dist/css/adminlte.min.css" %}">
+</head>
+<body class="hold-transition layout-top-nav dark-mode layout-fixed layout-navbar-fixed layout-footer-fixed">
+<div class="wrapper">
+
+  <nav class="main-header navbar navbar-expand-md navbar-dark">
+    <div class="container">
+      <a href="" class="navbar-brand">
+        <img src="{% static "dist/img/AdminLTELogo.png" %}" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">Linose <em>Studio</em></span>
+      </a>
+
+      <div class="collapse navbar-collapse order-3" id="navbarCollapse">
+      </div>
+
+      <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
+      </ul>
+    </div>
+  </nav>
+
+  <div class="content-wrapper">
+      
+    <div class="content-header">
+      <div class="container">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0"> Trained Bot</small></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-3"></div>
+              <div class="col-md-6">
+                {% block content %}
+                {% endblock content %}
+              </div>
+              <div class="col-md-3"></div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+  
+
+  <footer class="main-footer">
+      
+    <div class="float-right d-none d-sm-inline">
+        Version 1.0.0
+    </div>
+
+    <strong>Copyright &copy; 2022 <a target="_blank" href="http://linose-studio.herokuapp.com/">Linos <em>Studio</em></a>.</strong> All rights reserved.
+  </footer>
+</div>
+
+<!-- jQuery -->
+<script src="{% static "jquery/jquery.min.js" %}"></script>
+<!-- Bootstrap 4 -->
+<script src="{% static "bootstrap/js/bootstrap.bundle.min.js" %}"></script>
+<!-- AdminLTE App -->
+<script src="{% static "dist/js/adminlte.min.js" %}"></script>
+<!-- custom -->
+<script>
+  $(document).ready(function () {
+    
+    $('.direct-chat-messages ').scrollTop( $('.direct-chat-messages .direct-chat-msg:last-child').offset().top);
+  });
+</script>
+</body>
+</html>
